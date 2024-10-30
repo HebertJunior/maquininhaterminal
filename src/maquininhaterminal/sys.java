@@ -37,7 +37,8 @@ public class sys {
           catch (Exception e)
           {
             System.out.println("");
-            System.out.println("Digite um valor válido");         
+            System.out.println("Digite um valor válido");
+            ent.nextLine();
           } 
           
           while (val < 0.49)
@@ -59,9 +60,9 @@ public class sys {
         return val;
     }
     
-    public int CredDeb()
+    public void CredDeb()
     { 
-        limpa_tela();
+        limpa_tela();     
         int op = 0;
         System.out.println("Digite a opção de pagamento:");
         System.out.println("1 - CRÉDITO\n2 - DÉBITO");
@@ -75,13 +76,13 @@ public class sys {
             System.out.println("Digite um valor válido.");         
         }
         
-        while (op != 1 && op != 2 )
+        while (op != 1 && op != 2)
         {
            try
            {   
              limpa_tela();
              System.out.println("Digite a opção de pagamento:");
-             System.out.println("1 - CRÉDITO\n2 - DÉBITO");
+             System.out.println("1 - CRÉDITO\n2 - DÉBITO\n0 - Cancelar");
              op = ent.nextInt();  
            }
            catch (Exception e)
@@ -90,7 +91,19 @@ public class sys {
            }
         }
         
-        return op;
+        if (op == 1)
+            {
+                Credito(oper.getValor());
+            }
+        else if (op == 2)
+            {
+                Debito(oper.getValor());
+            } 
+        else
+            {
+                System.out.println("Operação finalizada!");
+            }
+
     }
     
     public void Credito(double val)
@@ -156,9 +169,9 @@ public class sys {
             System.out.println("Senha incorreta!");
         }
     }
-      
     public void recibo()
-    {
+    {        
+        limpa_tela();
         String nome = cliente.getNome();
         String tempo = oper.getHora();
         double total = oper.getValor();
@@ -167,7 +180,7 @@ public class sys {
         System.out.print("RECIBO\n");
         System.out.println("Nome:   " + nome + "\nData e hora: " + tempo + "\nTotal: R$" + total);
         System.out.print("============================\n");
-        
+
     
         
     }

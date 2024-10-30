@@ -18,7 +18,7 @@ public class Op {
     private double valor; //o valor da compra
     
     LocalDateTime dh = LocalDateTime.now();//retorna a data e hora atual
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd  HH:mm");
     String hora = dh.format(formatter);
 
     public Op() {
