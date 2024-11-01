@@ -16,40 +16,46 @@ public class Main {
         
     Scanner scanner = new Scanner(System.in);    
     sys op = new sys();//criação de uma nova operação e inserção de valores
-    
+    Msg msg = new Msg();
     
     int c = -2;//menu
-    
-    System.out.println("===================================");
-    System.out.println("MÁQUINA DE CARTÃO \n");
-    
+
     while (c != 0) 
     {
-        System.out.println("Selecione uma opção:    \n1 - Efetuar Venda\n2 - Estorno \n3 - Histórico e Opções\n0 - Sair"); 
+        msg.Menu_Principal();
         c = scanner.nextInt();
         switch (c)
         {  
-            case 1:
-                op.Inserir_Valor();
-                op.CredDeb();
-                break;
-            case 2:
-                System.out.println("Será implementada");
-                op.limpa_tela();
-                break;
-            case 3:
-                System.out.println("Será implementada"); 
-                op.limpa_tela();
-                break;
-            case 0:
-                System.out.println("Será implementada");
+            case 1 -> {
+                msg.limpa_tela();
+                op.Comprar(msg.Inserir_Valor_txt());
+                op.CredDeb(msg.CredDeb_txt());
+                msg.Continuar();
+            }
+            case 2 -> {
+                msg.limpa_tela();
+                msg.Msg_Padrao("Será implementada!");
+                msg.Continuar();
+                msg.limpa_tela();
+            }
+            case 3 -> {
+                msg.limpa_tela();
+                msg.Msg_Padrao("Será implementada!");
+                msg.Continuar();
+                msg.limpa_tela();
+            }
+            case 0 -> {
+                msg.limpa_tela();
+                msg.Msg_Padrao("FINALIZANDO...");
+                msg.limpa_tela();
                 c = 0;
-                op.limpa_tela();
                 return;
-            default:
-                System.out.println("Opção invalida");
-                op.limpa_tela();
-                break;
+            }
+            default -> {
+                msg.limpa_tela();
+                msg.Msg_Padrao("Opção inválida");
+                msg.limpa_tela();
+            }
         } 
     }
     
