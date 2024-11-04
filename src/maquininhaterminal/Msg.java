@@ -28,8 +28,8 @@ public class Msg {
     {
         System.out.println("===================================");
         System.out.println("MÁQUINA DE CARTÃO \n");
-        System.out.println("Selecione uma opção:    \n1 - Efetuar Venda\n2 - Estorno \n3 - Histórico e Opções\n0 - Sair");
-        System.out.println("===================================");
+        System.out.println("1 - Efetuar Venda\n2 - Estorno \n3 - Histórico e Opções\n0 - Sair\n\nSelecione uma das opções acima:    ");
+        System.out.println("\n===================================");
     }
     
     public void Msg_Padrao(String msg)

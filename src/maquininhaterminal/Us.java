@@ -16,6 +16,30 @@ public class Us {
     private double saldo;
     private int senha;
 
+    
+    public boolean ConsultarSaldo(double retirada)
+    {
+        boolean confi;
+        
+        if (saldo >= retirada)
+        {
+            AtualizarSaldo(retirada);
+            confi = true;
+        }
+        else
+        {
+            confi = false;
+        }
+        return confi;
+            
+    }
+    
+    
+    public void AtualizarSaldo(double retirada)
+    {
+        this.saldo = this.saldo - retirada;
+    }
+    
     public int getNcard() {
         return ncard;
     }
@@ -25,7 +49,7 @@ public class Us {
     }
 
     public double getSaldo() {
-        return saldo;
+        return this.saldo;
     }
 
     public int getSenha() {

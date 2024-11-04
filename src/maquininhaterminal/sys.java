@@ -8,7 +8,6 @@
  */
 package maquininhaterminal;
 
-import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class sys {
@@ -44,9 +43,9 @@ public class sys {
     
     public void Credito(double val)
     {
+        msg.limpa_tela();
         int psswd = 0;
         int senha = cliente.getSenha();
-        double valor;
         System.out.println("CRÉDITO");
         System.out.println();
         System.out.println("Digite sua senha:");
@@ -62,8 +61,15 @@ public class sys {
         
         if (senha == psswd)
         {
-            System.out.println("Transação Concluída!"); 
-            recibo();
+            if(cliente.ConsultarSaldo(val) == true) 
+            {
+               System.out.println("Transação Concluída!");
+               recibo(); 
+            }
+            else
+            {
+               System.out.println("NÃO AUTORIZADO");
+            }
         }
         else
         {
@@ -72,9 +78,9 @@ public class sys {
     }
       public void Debito (double val)
     {
+        msg.limpa_tela();
         int psswd = 0;
         int senha = cliente.getSenha();
-        double valor;
         System.out.println("Débito");
         System.out.println();
         System.out.println("Digite sua senha:");
@@ -90,9 +96,17 @@ public class sys {
         
         if (senha == psswd)
         {
-            System.out.println("Transação Concluída!");
-            recibo();
             
+            if(cliente.ConsultarSaldo(val) == true) 
+            {
+               System.out.println("Transação Concluída!");
+               recibo(); 
+            }
+            else
+            {
+                System.out.println("NÃO AUTORIZADO");
+            }
+  
         }
         else
         {
@@ -110,6 +124,10 @@ public class sys {
         System.out.print("RECIBO\n");
         System.out.println("Nome:   " + nome + "\nData e hora: " + tempo + "\nTotal: R$" + total);
         System.out.print("============================\n");
+        
+        System.out.println("==========================");
+        System.out.println("Saldo Atual: " + cliente.getSaldo());
+        System.out.println("==========================");
         msg.Continuar();
         msg.limpa_tela();
 
